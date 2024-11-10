@@ -168,17 +168,185 @@ public class Main {
         //7.1 - 5 vezes?
         //Faça um programa que leia 5  valores (considere que não serão informados valores iguais) e escrever a soma dos 2 maiores.
 
-        ArrayList<Integer> listaValoresSoma = new ArrayList<>();
+        System.out.println("Digite o primeiro valor");
+        int primeiroValorSomaDupla = leia.nextInt();
 
-        for (int i = 0; i < 5; i++){
-            System.out.println("Por favor, informe um número");
-            int valorSoma = leia.nextInt();
-            listaValoresSoma.add(valorSoma);
+        System.out.println("Digite o segundo valor");
+        int segundoValorSomaDupla = leia.nextInt();
+
+        System.out.println("Digite o terceiro valor");
+        int terceiroValorSomaDupla = leia.nextInt();
+
+        System.out.println("Digite o quarto valor");
+        int quartoValorSomaDupla = leia.nextInt();
+
+        System.out.println("Digite o quinto valor");
+        int quintoValorSomaDupla = leia.nextInt();
+
+        int primeiroValorMaior = primeiroValorSomaDupla;
+        int segundoValorMaior = segundoValorSomaDupla;
+
+        if (segundoValorSomaDupla > primeiroValorMaior){
+            primeiroValorMaior = segundoValorSomaDupla;
+            segundoValorMaior = primeiroValorSomaDupla;
         }
 
-        for(int i= 0; i < listaValoresSoma.size(); i++){
-
+        if (terceiroValorSomaDupla > primeiroValorMaior){
+            segundoValorMaior = primeiroValorMaior;
+            primeiroValorMaior = terceiroValorSomaDupla;
+        } else if (terceiroValorSomaDupla > segundoValorMaior){
+            segundoValorMaior = terceiroValorSomaDupla;
         }
 
+        if(quartoValorSomaDupla > primeiroValorMaior){
+            segundoValorMaior = primeiroValorMaior;
+            primeiroValorMaior = quartoValorSomaDupla;
+        } else if (quartoValorSomaDupla > segundoValorMaior){
+            segundoValorMaior = quartoValorSomaDupla;
+        }
+
+        if (quintoValorSomaDupla > primeiroValorMaior){
+            segundoValorMaior = primeiroValorMaior;
+            primeiroValorMaior = quintoValorSomaDupla;
+        } else if (quintoValorSomaDupla > segundoValorMaior){
+            segundoValorMaior = quintoValorSomaDupla;
+        }
+
+        int somaNumeros = primeiroValorMaior + segundoValorMaior;
+        System.out.println("A soma dos dois maiores numeros é" + somaNumeros);
+
+        //8 - Enquanto isso
+        //Faça um programa para ler 2 valores informados pelo usuário e se o segundo valor informado for neutro, deve ser lido um novo valor - ou seja, para o segundo valor não pode ser aceito o valor zero nem um valor negativo. O programa deve imprimir o resultado da divisão do primeiro valor lido pelo segundo valor lido.
+
+        System.out.println("Olá, por favor informe o primeiro número: ");
+        int primeiroValorInformado = leia.nextInt();
+        int segundoValorInformado = 0;
+
+        while(segundoValorInformado < 1){
+            System.out.println("Agora, informe o segundo número");
+            segundoValorInformado = leia.nextInt();
+        }
+
+        int divisaoValores = primeiroValorInformado / segundoValorInformado;
+        System.out.println("A divisão do primeiro número pelo segundo é: " + divisaoValores);
+
+        //9 -  Cansar de Digitar
+        //Faça um programa que leia 10 valores informados pelo usuário, calcule, exiba os números informados e escreva a média aritmética desses valores lidos.
+
+        ArrayList<Integer> listaValoresUsuario = new ArrayList<>();
+
+        int soma = 0;
+        for( int i = 0; i < 10; i++){
+            System.out.println("Informe um valor");
+            int valorInformado = leia.nextInt();
+            listaValoresUsuario.add(valorInformado);
+            soma+= valorInformado;
+        }
+
+        System.out.println("Os valores informados são:");
+        for (int i = 0; i < listaValoresUsuario.size(); i++) {
+            System.out.println(listaValoresUsuario.get(i));
+        }
+
+        int mediaAritmetica = soma / listaValoresUsuario.size();
+        System.out.println("A média aritmética é: " + mediaAritmetica);
+
+        // 10 - Parabéns
+        // Escreva um programa para ler as notas das 4 avaliações de um aluno no semestre, calcular e escrever a média do semestre e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado (considere 6.0 a média mínima para aprovação e 4 notas informadas).
+
+        double somaNotas = 0;
+        for(int i = 0; i < 4; i++){
+            System.out.printf("Informe a nota da avaliação");
+            double nota = leia.nextDouble();
+            somaNotas+= nota;
+        }
+
+        double mediaNotas = somaNotas / 4;
+        if (mediaNotas >= 6){
+            System.out.println("O aluno está aprovado.");
+        } else {
+            System.out.println("O aluno está reprovado.");
+        }
+
+        //11 - BOOOOMMM
+        //Crie uma bomba relógio (usando somente código - para deixar claro!) cuja contagem regressiva vá de 30 a 0. Escreva a contagem em tela e no final da repetição escreva "EXPLOSÃO".
+
+        for(int i = 30; i > 0; i--){
+            System.out.println(i);
+        }
+
+        System.out.println("Explosão!!!!!!!!!");
+
+        //12 - 10, 9, 8, 7, 6, 5, 4, 3, 2, 1...
+        //Escreva um algoritmo para imprimir os números de 1 (inclusive) a 10 (inclusive) em ordem decrescente.
+
+        for(int i = 10; i > 0; i--){
+            System.out.println(i);
+        }
+
+        //13 - De quanto até quanto?
+        //Faça um algoritmo que calcule e escreva a média aritmética dos dois números inteiros informados pelo usuário e todos os números inteiros entre eles. Considere que o primeiro sempre será menor que o segundo.
+
+        System.out.println("Escreva o primeiro numero");
+        int primeiroNumeroUsuario = leia.nextInt();
+
+        System.out.println("Escreva o segundo numero");
+        int segundoNumeroUsuario = leia.nextInt();
+
+        if (primeiroNumeroUsuario > segundoNumeroUsuario) {
+            while(primeiroNumeroUsuario > segundoNumeroUsuario){
+                System.out.println("O segundo número deve ser maior que o primeiro, digite novamente o segundo valor.");
+                segundoNumeroUsuario = leia.nextInt();
+            }
+        }
+
+        int mediaNumeroUsuario = (primeiroNumeroUsuario + segundoNumeroUsuario) / 2;
+        System.out.println("A média dos números é: " + mediaNumeroUsuario);
+
+        // 14 - Passou no Teste?
+        // Escreva um programa para ler 6 notas de um aluno, calcular e imprimir a média final. Considere que a nota de aprovação é 6,5. Logo após escrever a mensagem "Calcular a média de outro aluno Sim/Não?" e solicitar um resposta. Se a resposta for "S", o programa deve ser executado novamente, caso contrário deve ser encerrado exibindo a quantidade de alunos aprovados.
+
+        boolean sairDoLoop = false;
+        ArrayList<Integer> listaAlunosAprovados = new ArrayList<>();
+
+        while (sairDoLoop == false){
+            double somaMedia = 0;
+            for(int i = 0; i < 6; i++){
+                System.out.println("Digite a nota do aluno");
+                double valorNota = leia.nextInt();
+                somaMedia += valorNota;
+            }
+            double mediaFinal = somaMedia / 6;
+            if (mediaFinal > 6.5){
+                System.out.println("O aluno está aprovado.");
+                listaAlunosAprovados.add((int) mediaFinal);
+            } else {
+                System.out.println("O aluno está reprovado.");
+            }
+
+            System.out.println("Deseja calcular a média de outro aluno? S/N");
+            String escolhaDoUsuario = leia.nextLine();
+
+            if (escolhaDoUsuario == "N"){
+                sairDoLoop = true;
+            }
+        }
+
+        System.out.println("A quantidade de alunos aprovados é: " + listaAlunosAprovados.size());
+
+        // 15 - Uma Brincadeira Sobre Alturas
+        //Anacleto tem 1,50 metro e cresce 2 centímetros por ano, enquanto Felisberto tem 1,1O metro e cresce 3 centímetros por ano. Construa um algoritmo que calcule e imprima quantos anos serão necessários para que Felisberto seja maior que Anacleto.
+
+        double alturaAnacleto = 1.50;
+        double alturaFelisberto = 1.10;
+        int anosNecessarios = 0;
+
+        while (alturaAnacleto > alturaFelisberto){
+            alturaAnacleto+= 0.02;
+            alturaFelisberto+= 0.03;
+            anosNecessarios++;
+        }
+
+        System.out.println("Será necessário " + anosNecessarios + " anos para Felisberto ser maior que Anacleto");
     }
 }
