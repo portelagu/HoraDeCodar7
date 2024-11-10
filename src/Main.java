@@ -1,6 +1,8 @@
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,7 +64,7 @@ public class Main {
         float baseMenorTrapezio = leia.nextFloat();
         System.out.println("Agora, digite o valor da altura: ");
         float alturaTrapezio = leia.nextFloat();
-        float valorTrapezio = ((baseMaiorTrapezio + baseMenorTrapezio) * alturaTrapezio ) / 2;
+        float valorTrapezio = ((baseMaiorTrapezio + baseMenorTrapezio) * alturaTrapezio) / 2;
         System.out.println("A área do trapézio é: " + valorTrapezio);
 
         //Area Paralelogramo
@@ -92,9 +94,9 @@ public class Main {
 
         System.out.println("Por favor, informe um número: ");
         int numeroInformado = leia.nextInt();
-        if (numeroInformado > 0){
+        if (numeroInformado > 0) {
             System.out.println("O número que você informou é " + numeroInformado + ", certo? Este é um número positivo.");
-        } else if (NumeroInformado == 0) {
+        } else if (numeroInformado == 0) {
             System.out.println("O número que você informou é " + numeroInformado + ", certo? Este é um número neutro.");
         } else {
             System.out.println("O número que você informou é " + numeroInformado + ", certo? Este é um número negativo.");
@@ -111,15 +113,71 @@ public class Main {
         System.out.println("Agora, digite o terceiro número: ");
         int terceiroValor = leia.nextInt();
 
-        if (primeiroValor > segundoValor && primeiroValor > terceiroValor){
+        if (primeiroValor > segundoValor && primeiroValor > terceiroValor) {
             System.out.println("O maior número que você digitou foi: " + primeiroValor);
-        } else if (segundoValor > primeiroValor && segundoValor > terceiroValor){
+        } else if (segundoValor > primeiroValor && segundoValor > terceiroValor) {
             System.out.println("O maior número que você digitou foi: " + segundoValor);
-        } else if (terceiroValor > primeiroValor && terceiroValor > segundoValor){
+        } else if (terceiroValor > primeiroValor && terceiroValor > segundoValor) {
             System.out.println("O maior número que você digitou foi: " + terceiroValor);
         }
 
 
+        //6.1 - Faça um programa para ler 4 valores (considere que não serão informados valores iguais) e escrever o maior deles.
+
+        System.out.println("Agora vamos escrever o maior valor entre 4 números informados");
+
+        ArrayList<Integer> listaDeValores = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Por favor informe um número: ");
+            int valorNumero = leia.nextInt();
+            listaDeValores.add(valorNumero);
+        }
+
+        int numeroMaior = listaDeValores.get(0);
+        for (int i = 0; i < listaDeValores.size(); i++) {
+            if (listaDeValores.get(i) > numeroMaior) {
+                numeroMaior = listaDeValores.get(i);
+            }
+        }
+        System.out.println("O maior número informado foi: " + numeroMaior);
+
+        // 7 - Qual o quê?
+        //Faça um programa que leia  3 valores (considere que não serão informados valores iguais) e escreva a soma dos 2 maiores.
+
+        System.out.println("Agora, informe três números para ser feito a soma dos dois maiores. Informe o primeiro número: ");
+        int primeiroValorSoma = leia.nextInt();
+        System.out.println("Informe o segundo número: ");
+        int segundoValorSoma = leia.nextInt();
+        System.out.println("Informe o terceiro número: ");
+        int terceiroValorSoma = leia.nextInt();
+
+        int somaValores = 0;
+
+        if(primeiroValorSoma < segundoValorSoma && primeiroValorSoma < terceiroValorSoma){
+            somaValores = segundoValorSoma + terceiroValorSoma;
+            System.out.println("O segundo e terceiro valor foram os maiores digitados, a soma é: " + somaValores);
+        } else if(segundoValor < primeiroValorSoma && segundoValorSoma < terceiroValorSoma){
+            somaValores = primeiroValorSoma + terceiroValorSoma;
+            System.out.println("O primeiro e terceiro valor foram os maiores digitados, a soma é: " + somaValores);
+        } else if(terceiroValorSoma < primeiroValorSoma && terceiroValorSoma < segundoValorSoma){
+            somaValores = primeiroValorSoma + segundoValorSoma;
+            System.out.println("O primeiro e segundo valor foram os maiores digitados, a soma é: " + somaValores);
+        }
+
+        //7.1 - 5 vezes?
+        //Faça um programa que leia 5  valores (considere que não serão informados valores iguais) e escrever a soma dos 2 maiores.
+
+        ArrayList<Integer> listaValoresSoma = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++){
+            System.out.println("Por favor, informe um número");
+            int valorSoma = leia.nextInt();
+            listaValoresSoma.add(valorSoma);
+        }
+
+        for(int i= 0; i < listaValoresSoma.size(); i++){
+
+        }
 
     }
 }
